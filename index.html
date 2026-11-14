@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Trabajo JavaScript</title>
+  <style>
+    .contenedor { display: flex; justify-content: flex-start; align-items: flex-start; gap: 40px; }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <!-- Izquierda: color -->
+    <div>
+      <label for="color">Seleccione:</label>
+      <select id="color">
+        <option value=""></option>
+        <option value="yellow">Amarillo</option>
+        <option value="blue">Azul</option>
+        <option value="red">Rojo</option>
+      </select>
+      <br><br>
+      <button onclick="mostrarColor()">Mostrar</button>
+      <br><br>
+      <div id="cuadroColor" style="width:250px; height:250px;"></div>
+    </div>
+
+    <!-- Derecha: imagen -->
+    <div>
+      <label for="vehiculo">Seleccione:</label>
+      <select id="vehiculo">
+        <option value=""></option>
+        <option value="carro.png">Carro</option>
+        <option value="moto.png">Moto</option>
+        <option value="bicicleta.png">Bicicleta</option>
+      </select>
+      <br><br>
+      <button onclick="mostrarImagen()">Mostrar</button>
+      <br><br>
+      <div id="cuadroImagen"></div>
+    </div>
+
+  </div>
+
+  <script>
+    function mostrarColor() {
+      var color = document.getElementById("color").value;
+      document.getElementById("cuadroColor").style.backgroundColor = color;
+    }
+
+    function mostrarImagen() {
+      var ruta = document.getElementById("vehiculo").value;
+      var cuadro = document.getElementById("cuadroImagen");
+      if (ruta === "") {
+        cuadro.innerHTML = "";
+      } else {
+        cuadro.innerHTML = '<img src="' + ruta + '" width="380" alt="Imagen seleccionada">';
+      }
+    }
+  </script>
+</body>
+</html>
