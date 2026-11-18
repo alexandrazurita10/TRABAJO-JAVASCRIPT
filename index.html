@@ -1,62 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Trabajo JavaScript</title>
-  <style>
-    .contenedor { display: flex; justify-content: flex-start; align-items: flex-start; gap: 40px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selección de Color e Imagen con JS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        .seccion {
+            margin-bottom: 50px;
+        }
+
+        .controles {
+            margin-bottom: 15px;
+        }
+
+        select, button {
+            padding: 4px 8px;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 10px;
+            display: block;
+            cursor: pointer;
+        }
+
+        #cuadroColor {
+            width: 220px;
+            height: 220px;
+            border: 1px solid #ccc;
+            background-color: transparent;
+        }
+
+        #cuadroImagen {
+            width: 280px;
+            height: 200px;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        #cuadroImagen img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    </style>
 </head>
 <body>
-  <div class="contenedor">
 
-    <!-- Izquierda: color -->
-    <div>
-      <label for="color">Seleccione:</label>
-      <select id="color">
-        <option value=""></option>
-        <option value="yellow">Amarillo</option>
-        <option value="blue">Azul</option>
-        <option value="red">Rojo</option>
-      </select>
-      <br><br>
-      <button onclick="mostrarColor()">Mostrar</button>
-      <br><br>
-      <div id="cuadroColor" style="width:250px; height:250px;"></div>
+    <div class="seccion">
+        <div class="controles">
+            <label for="selectColor">Seleccione:</label>
+            <select id="selectColor">
+                <option value="yellow">Amarillo</option>
+                <option value="blue">Azul</option>
+                <option value="red">Rojo</option>
+            </select>
+            <button type="button" id="btnColor">Mostrar</button>
+        </div>
+        <div id="cuadroColor"></div>
     </div>
 
-    <!-- Derecha: imagen -->
-    <div>
-      <label for="vehiculo">Seleccione:</label>
-      <select id="vehiculo">
-        <option value=""></option>
-        <option value="carro.png">Carro</option>
-        <option value="moto.jpg">Moto</option>
-        <option value="bicicleta.png">Bicicleta</option>
-      </select>
-      <br><br>
-      <button onclick="mostrarImagen()">Mostrar</button>
-      <br><br>
-      <div id="cuadroImagen"></div>
+    <div class="seccion">
+        <div class="controles">
+            <label for="selectImagen">Seleccione:</label>
+            <select id="selectImagen">
+                <option value="carro">Carro</option>
+                <option value="moto">Moto</option>
+                <option value="bicicleta">Bicicleta</option>
+            </select>
+            <button type="button" id="btnImagen">Mostrar</button>
+        </div>
+        <div id="cuadroImagen"></div>
     </div>
 
-  </div>
-
-  <script>
-    function mostrarColor() {
-      var color = document.getElementById("color").value;
-      document.getElementById("cuadroColor").style.backgroundColor = color;
-    }
-
-    function mostrarImagen() {
-      var ruta = document.getElementById("vehiculo").value;
-      var cuadro = document.getElementById("cuadroImagen");
-      if (ruta === "") {
-        cuadro.innerHTML = "";
-      } else {
-        cuadro.innerHTML = '<img src="' + ruta + '" width="380" alt="Imagen seleccionada">';
-      }
-    }
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
